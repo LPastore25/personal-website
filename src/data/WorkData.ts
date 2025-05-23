@@ -1,39 +1,42 @@
 export const workData = [
   {
-    company: 'KeyBank',
-    title: 'Digital Analyst Intern',
-    location: 'Remote (Cleveland, OH)',
-    dates: 'June 2023 – August 2023',
-    points: [
-      'Built a business case for a native mobile app including cost-benefit analysis, competitor analysis, and ROI justification.',
-      'Collaborated cross-functionally with UX, Research, and Product to align digital banking strategy.',
-      'Presented findings directly to VP-level stakeholders and supported rollout planning for 2024.',
-    ],
-    tags: ['Mobile UX', 'Competitive Research', 'Digital Strategy'],
-  },
-  {
     company: 'Pastore Solutions LLC',
     title: 'Business Intelligence Developer',
-    location: 'Remote',
-    dates: 'May 2022 – Present',
+    location: 'Remote (Boston, MA)',
+    dates: 'August 2024 – Present',
     points: [
-      'Created automated pricing tools and dashboards using Domo ETLs and Beast Mode formulas.',
-      'Integrated competitor and facility data across 18 self-storage locations into a unified reporting system.',
-      'Supported pricing decisions and revenue optimization with executive-facing dashboards.',
+      'Consulted for a Self-Storage company with 18 facilities across 4 different states',
+      'Created automated pricing tools saving 50 hours a month using 43 different variables using Domo ETL’s and Beast Mode',
+      'Created a Master Data set integrating data across all facilities and competitors in Domo',
+      'Created dashboards to oversee price/cost analysis and metrics to evaluate facility performance'
     ],
     tags: ['Data Visualization', 'Domo', 'ETL Automation'],
   },
   {
-    company: 'Weatherhead School of Management & Cleveland Clinic',
+    company: 'Weatherhead School of Management',
     title: 'Research Assistant',
     location: 'Cleveland, OH',
-    dates: 'January 2022 – May 2023',
+    dates: 'September 2024 – Present',
     points: [
-      'Led data anonymization and AI-enhanced processing of qualitative interviews for a multi-institutional study.',
-      'Synthesized survey/interview data from billion-dollar healthcare construction projects.',
-      'Collaborated with BI Norwegian Business School for cross-cultural analysis.',
+      'Processing and coding quantitative (surveys) and qualitative (interviews) data across various teams',
+      'Transformed complex raw data into clear, actionable insights to support strategic decision-making',
+      'Programming tools to de identify data in accordance with the Institutional Review Board ',
+      'Aiding AI integrations into several elements within our research team',
+      'Collaborating with the BI Norwegian Business School to synthesize research findings and develop cross-institutional strategies'
     ],
     tags: ['Organizational Research', 'AI Integration', 'Qualitative Analysis'],
+  },
+  {
+    company: 'KeyBank',
+    title: 'Digital Analyst Intern',
+    location: 'Remote (Cleveland, OH)',
+    dates: 'May 2024 – August 2024',
+    points: [
+      'Developed a business case for a native mobile app including cost benefit analysis, user benchmarking, and cross team collaborations',
+      'Worked on the consumer digital strategy to watch market trends, customer engagement, and create actionable insights',
+      'Conducted high-level competitive analysis of financial institutions focusing on app features, user experience, and market size to inform strategic positioning',
+    ],
+    tags: ['Mobile UX', 'Competitive Research', 'Digital Strategy'],
   },
   {
     company: 'Interfraternal Council @ CWRU',
@@ -48,9 +51,9 @@ export const workData = [
   },
   {
     company: 'Camp Leslie',
-    title: 'Camp Counselor',
+    title: 'Area Head Counselor',
     location: 'Georgetown, MA',
-    dates: 'Summers 2017 – 2020',
+    dates: 'Summers 2019 – 2023',
     points: [
       'Supervised a team of 9 and managed 96 campers over 4 years.',
       'Developed conflict resolution training and leadership programming for youth.',
@@ -60,8 +63,8 @@ export const workData = [
   {
     company: 'Marshalls LLC',
     title: 'Retail Cashier',
-    location: 'Peabody, MA',
-    dates: '2018 – 2021 (Part-Time)',
+    location: 'Stoneham, MA',
+    dates: 'May 2021 – July 2021',
     points: [
       'Handled returns, transactions, and customer questions in a fast-paced retail setting.',
       'Built strong multitasking and customer service skills through direct client interaction.',
@@ -72,7 +75,7 @@ export const workData = [
     company: 'USOfficials',
     title: 'Sports Referee',
     location: 'Greater Boston Area',
-    dates: '2017 – 2021 (Part-Time)',
+    dates: 'October 2016 – May 2020 (Part-Time)',
     points: [
       'Officiated soccer games as center and assistant referee for youth age groups.',
       'Maintained rule enforcement, player safety, and composure under pressure.',
