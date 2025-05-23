@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaLinkedin } from 'react-icons/fa'
+import Starfield from '../components/Starfield'
+import BackgroundWrapper from '../components/BackgroundWrapper'
 
 const MotionBox = motion(Box)
 
@@ -62,12 +64,20 @@ const workItems = [
   },
 ]
 
+const sections = [
+  { title: 'About Me', bg: 'transparent', color: 'white' },
+  { title: 'Projects', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
+  { title: 'Skills', bg: 'transparent', color: 'white' },
+  { title: 'Contact', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
+]
+
 export default function Home() {
   const bg = useColorModeValue('gray.50', 'gray.900')
   const color = useColorModeValue('gray.800', 'gray.100')
 
   return (
-    <Box bg={bg} color={color} px={6}>
+    <BackgroundWrapper>
+      <Starfield />        
       {/* HERO SECTION */}
       <VStack minH="100vh" spacing={10} justify="center" align="center">
         <MotionBox
@@ -128,13 +138,32 @@ export default function Home() {
         </MotionBox>
       </VStack>
 
+
+      {/* PROJECTS SECTION */}
+      {sections.map((section, index) => (
+      <Box
+        key={index}
+        w="full"
+        h="100vh"
+        bg={section.bg}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        textAlign="center"
+      >
+        <Text fontSize="5xl" fontWeight="bold" color={section.color} opacity={0.8}>
+          {section.title}
+        </Text>
+      </Box>
+    ))}
+
       {/* WORK SECTION */}
       <Box as="section" id="work" py={[16, 24]} maxW="6xl" mx="auto">
         <Heading fontSize="4xl" mb={10} textAlign="center">
           Work & Experience
         </Heading>
 
-        <SimpleGrid columns={[1, null, 2]} spacing={10}>
+        <SimpleGrid columns={[1, null, 1]} spacing={10}>
           {workItems.map((item, index) => (
             <MotionBox
               key={index}
@@ -174,6 +203,6 @@ export default function Home() {
           ))}
         </SimpleGrid>
       </Box>
-    </Box>
+    </BackgroundWrapper>
   )
 }
