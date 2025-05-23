@@ -16,59 +16,16 @@ import { motion } from 'framer-motion'
 import { FaLinkedin } from 'react-icons/fa'
 import Starfield from '../components/Starfield'
 import BackgroundWrapper from '../components/BackgroundWrapper'
+import { workItems } from '../data/workItems'
+import Header from '../components/Header'
 
 const MotionBox = motion(Box)
 
-const workItems = [
-  {
-    title: 'Digital Analyst Intern – KeyBank',
-    description:
-      'Built a business case for a native mobile app including cost-benefit analysis, cross-team collaboration, and high-level competitor analysis. Contributed to consumer digital strategy and product insights.',
-    tags: ['Mobile UX', 'Competitive Research', 'Digital Strategy'],
-  },
-  {
-    title: 'Business Intelligence Developer – Pastore Solutions LLC',
-    description:
-      'Created automated pricing tools and dashboards for a self-storage company across 18 facilities using Domo ETLs and Beast Mode. Integrated competitor and facility data into a unified reporting system.',
-    tags: ['Data Visualization', 'Domo', 'ETL Automation'],
-  },
-  {
-    title: 'Research Assistant – Weatherhead & Cleveland Clinic',
-    description:
-      'Analyzed survey and interview data from billion-dollar healthcare construction projects. Led data anonymization, AI tool integration, and cross-institutional synthesis with BI Norwegian Business School.',
-    tags: ['Organizational Research', 'AI Integration', 'Qualitative Analysis'],
-  },
-  {
-    title: 'President – Interfraternal Council @ CWRU',
-    description:
-      'Led governance of 16 fraternities, mediated conflict, managed relations with university leadership, and facilitated interchapter collaboration and events.',
-    tags: ['Leadership', 'Policy Mediation', 'Community Building'],
-  },
-  {
-    title: 'Camp Counselor – Camp Leslie',
-    description:
-      'Supervised a team of 9 and managed 96 campers over 4 years. Developed leadership curricula and conflict resolution training for staff and youth.',
-    tags: ['Team Leadership', 'Youth Development', 'Training Facilitation'],
-  },
-  {
-    title: 'Retail Cashier – Marshalls LLC',
-    description:
-      'Handled fast-paced retail operations, returns, and customer service. Built soft skills in communication, multitasking, and professionalism.',
-    tags: ['Customer Service', 'Point-of-Sale', 'Retail Operations'],
-  },
-  {
-    title: 'Sports Referee – USOfficials',
-    description:
-      'Officiated youth soccer games as center and assistant referee. Maintained calm authority, rule enforcement, and player safety across age groups.',
-    tags: ['Decision Making', 'Youth Sports', 'Communication'],
-  },
-]
 
 const sections = [
-  { title: 'About Me', bg: 'transparent', color: 'white' },
-  { title: 'Projects', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
-  { title: 'Skills', bg: 'transparent', color: 'white' },
-  { title: 'Contact', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
+  { id: 'projects', title: 'Projects', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
+  { id: 'education', title: 'Education', bg: 'transparent', color: 'white' },
+  { id: 'contact', title: 'Contact', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
 ]
 
 export default function Home() {
@@ -77,15 +34,40 @@ export default function Home() {
 
   return (
     <BackgroundWrapper>
+      <Header />
       <Starfield />        
       {/* HERO SECTION */}
-      <VStack minH="100vh" spacing={10} justify="center" align="center">
+      <VStack id="hero" minH="100vh" spacing={10} justify="center" align="center">
+        <Box
+          boxSize={80}
+          borderRadius="full"
+          overflow="hidden"
+          border="3px solid white"
+          boxShadow="0 0 30px rgba(255, 255, 255, 0.05)"
+          animation="float 6s ease-in-out infinite"
+          sx={{
+            '@keyframes float': {
+              '0%, 100%': { transform: 'translateY(-10px)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+          }}
+        >
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQFyQEB0vBa8Sw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718883759803?e=1753315200&v=beta&t=2CvKBTIuWoZ4_0V5fKPmFVRZB22e4ssVNGLQY0i40cU"
+            alt="Luke Pastore"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </Box>
+
+
         <MotionBox
           textAlign="center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          
+          
           <Heading fontSize={['3xl', '5xl']} fontWeight="extrabold" lineHeight="1.2">
             Luke Pastore
           </Heading>
@@ -139,31 +121,35 @@ export default function Home() {
       </VStack>
 
 
-      {/* PROJECTS SECTION */}
+      {/* Template SECTION */}
       {sections.map((section, index) => (
-      <Box
-        key={index}
-        w="full"
-        h="100vh"
-        bg={section.bg}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
-      >
-        <Text fontSize="5xl" fontWeight="bold" color={section.color} opacity={0.8}>
-          {section.title}
-        </Text>
-      </Box>
-    ))}
+        <Box
+          as="section"
+          key={index}
+          id={section.id}
+          w="full"
+          h="100vh"
+          bg={section.bg}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+          scrollSnapAlign="start"
+        >
+          <Text fontSize="5xl" fontWeight="bold" color={section.color} opacity={0.8}>
+            {section.title}
+          </Text>
+        </Box>
+      ))}
+
 
       {/* WORK SECTION */}
-      <Box as="section" id="work" py={[16, 24]} maxW="6xl" mx="auto">
-        <Heading fontSize="4xl" mb={10} textAlign="center">
+      <Box as="section" id="experience" py={[16, 24]} maxW="6xl" mx="auto">
+        <Heading fontSize="5xl" fontWeight="bold" color="white" opacity={0.8} mb={10} textAlign="center">
           Work & Experience
         </Heading>
 
-        <SimpleGrid columns={[1, null, 1]} spacing={10}>
+        <SimpleGrid columns={[1, null, 2]} spacing={10}>
           {workItems.map((item, index) => (
             <MotionBox
               key={index}

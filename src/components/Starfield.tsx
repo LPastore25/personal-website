@@ -4,7 +4,29 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useRef, useMemo, useEffect, useState } from 'react'
 import { Box } from '@chakra-ui/react'
-import { Sphere } from '@react-three/drei'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { useThree } from '@react-three/fiber'
+
+function CameraZoom() {
+  const { camera } = useThree()
+  const targetZ = 1
+  const initialZ = 700
+  const speed = 0.05
+
+  useEffect(() => {
+    camera.position.z = initialZ
+  }, [camera])
+
+  useFrame(() => {
+    if (camera.position.z > targetZ) {
+      camera.position.z -= (camera.position.z - targetZ) * speed
+    } else {
+      camera.position.z = targetZ
+    }
+  })
+
+  return null
+}
 
 function StarsLayer({
   count,
@@ -81,14 +103,12 @@ export default function Starfield() {
       style={{ maskImage: 'radial-gradient(ellipse at 80% 10%, black 30%, transparent 100%)' }}
     />
 
-    <Canvas
-      camera={{ position: [0, 0, 1] }}
-      gl={{ antialias: true }}
-      style={{ background: '#090b10' }}
-    >
+    <Canvas camera={{ position: [0, 0, 1] }} gl={{ antialias: true }} style={{ background: '#090b10' }}>
+      <CameraZoom />
       <fog attach="fog" args={['#090b10', 100, 160]} />
       <directionalLight intensity={0.4} position={[10, 10, 10]} color="#6ea8d6" />
       <ambientLight intensity={0.7} color="#ccccff" />
+      
       <StarsLayer count={200} size={0.32} color="#80caff" radius={180} scrollMultiplier={0.014} />
       <StarsLayer count={250} size={0.26} color="#99ddff" radius={220} scrollMultiplier={0.012} />
       <StarsLayer count={350} size={0.2} color="#cceaff" radius={260} scrollMultiplier={0.010} />
@@ -96,6 +116,8 @@ export default function Starfield() {
       <StarsLayer count={1000} size={0.12} color="#ffffff" radius={370} scrollMultiplier={0.006} />
       <StarsLayer count={1200} size={0.1} color="#a3c8dc" radius={480} scrollMultiplier={0.004} />
       <StarsLayer count={1600} size={0.07} color="#4a6b82" radius={650} scrollMultiplier={0.002} />
+      
+      <Bloom luminanceThreshold={0.9} luminanceSmoothing={0.9} intensity={1.5} />
     </Canvas>
   </Box>
 )
