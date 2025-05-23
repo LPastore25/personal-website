@@ -11,7 +11,7 @@ function CameraZoom() {
   const { camera } = useThree()
   const targetZ = 1
   const initialZ = 700
-  const speed = 0.05
+  const speed = 0.025
 
   useEffect(() => {
     camera.position.z = initialZ
