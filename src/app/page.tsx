@@ -15,7 +15,11 @@ import {
   PopoverTrigger,
   Popover,
   PopoverContent,
-  PopoverBody
+  PopoverBody,
+  FormControl,
+  Textarea,
+  FormLabel,
+  Input
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaFileAlt, FaLinkedin } from 'react-icons/fa'
@@ -304,25 +308,34 @@ export default function Home() {
       
 
       {/* CONTACT SECTION */}
-      {sections.map((section, index) => (
-        <Box
-          as="section"
-          key={index}
-          id={section.id}
-          w="full"
-          h="100vh"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          textAlign="center"
-          scrollSnapAlign="start"
-        >
-          <Text fontSize="5xl" fontWeight="bold" color={section.color} opacity={0.8}>
-            {section.title}
-          </Text>
-        </Box>
-      ))}
+      <Box as="section" id="contact" py={16} maxW="xl" mx="auto">
+        <Heading fontSize="4xl" mb={8} textAlign="center" color="white">
+          Contact Me
+        </Heading>
+        <form action="https://formsubmit.co/f998ad7e6307bf629b2676d81e14faa8" method="POST">
+          <VStack spacing={6}>
+            <FormControl isRequired>
+              <FormLabel color="white">Name</FormLabel>
+              <Input name="name" placeholder="Your name" bg="white" />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel color="white">Email</FormLabel>
+              <Input type="email" name="email" placeholder="you@example.com" bg="white" />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel color="white">Message</FormLabel>
+              <Textarea name="message" placeholder="Your message..." bg="white" />
+            </FormControl>
+            <Input type="hidden" name="_captcha" value="false" />
+            <Button type="submit" colorScheme="brand" w="full">
+              Send Message
+            </Button>
+          </VStack>
+        </form>
+      </Box>
     <Starfield /> 
+
+    {/* Floating Resume Button */}
     <Popover trigger="hover" placement="top">
       <PopoverTrigger>
         <Box
