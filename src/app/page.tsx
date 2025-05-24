@@ -100,6 +100,10 @@ export default function Home() {
                 colorScheme="brand"
                 variant="solid"
                 leftIcon={<Icon as={FaLinkedin} boxSize={5} />}
+                _hover={{
+                  transform: 'scale(1.05)',
+                  transition: 'all 0.2s ease-in-out',
+                }}
               >
                 LinkedIn
               </Button>
@@ -333,7 +337,7 @@ export default function Home() {
           maxW="80px"
           maxH="80px"
           borderRadius="full"
-          bg="brand.500"
+          bg="#2D2D2D"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -366,13 +370,15 @@ export default function Home() {
         mr="10px"
       >
         <PopoverBody p={2}>
-          <Image
-            src="/images/resume-preview.jpg"
-            alt="Resume Preview"
-            width="100%"
-            borderRadius="md"
-            pointerEvents="none"
-          />
+          <Link href="/Luke-Pastore-Resume.pdf" isExternal>
+            <Image
+              src="/images/resume-preview.jpg"
+              alt="Resume Preview"
+              width="100%"
+              borderRadius="md"
+              pointerEvents="none"
+            />
+          </Link>
         </PopoverBody>
       </PopoverContent>
     </Popover>
