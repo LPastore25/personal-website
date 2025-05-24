@@ -312,7 +312,7 @@ export default function Home() {
         <Heading fontSize="4xl" mb={8} textAlign="center" color="white">
           Contact Me
         </Heading>
-        <form action="https://formsubmit.co/f998ad7e6307bf629b2676d81e14faa8" method="POST">
+        <form action="https://formsubmit.co/luke@lukepastore.com" method="POST">
           <VStack spacing={6}>
             <FormControl isRequired>
               <FormLabel color="white">Name</FormLabel>

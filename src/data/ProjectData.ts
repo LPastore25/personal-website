@@ -1,6 +1,6 @@
 export const csProjects = [
   {
-    title: 'Outfit Recommendation System',
+    title: 'Outfit Recommendation Mobile App',
     description:
       'Built a constraint satisfaction–based system to recommend personalized daily outfits based on weather, color coordination, formality, and layering rules. Features a React Native frontend, Firebase for image storage, and a Flask backend to generate outfit logic.',
     tags: ['CSP', 'React Native', 'Firebase', 'Flask', 'Recommendation Systems'],
