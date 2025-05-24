@@ -11,10 +11,15 @@ import {
   Icon,
   useColorModeValue,
   SimpleGrid,
-  Image
+  Image,
+  IconButton,
+  PopoverTrigger,
+  Popover,
+  PopoverContent,
+  PopoverBody
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FaLinkedin } from 'react-icons/fa'
+import { FaFileAlt, FaLinkedin } from 'react-icons/fa'
 import Starfield from '../components/Starfield'
 import BackgroundWrapper from '../components/BackgroundWrapper'
 import { workData } from '../data/WorkData'
@@ -32,8 +37,6 @@ const sections = [
 ]
 
 export default function Home() {
-  const bg = useColorModeValue('gray.50', 'gray.900')
-  const color = useColorModeValue('gray.800', 'gray.100')
 
   return (
     <BackgroundWrapper>
@@ -51,8 +54,9 @@ export default function Home() {
       >
         {/* Floating Profile Image */}
         <Box
-          boxSize={['150px', '250px']}
-          borderRadius="full"
+          w={['300px', '1000px']}
+          h={['200px', '600px']}
+          borderRadius="2xl"
           overflow="hidden"
           border="3px solid white"
           boxShadow="0 0 30px rgba(255, 255, 255, 0.08)"
@@ -64,10 +68,12 @@ export default function Home() {
             },
           }}
         >
-          <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQFyQEB0vBa8Sw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718883759803?e=1753315200&v=beta&t=2CvKBTIuWoZ4_0V5fKPmFVRZB22e4ssVNGLQY0i40cU"
-            alt="Luke Pastore"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          <Image
+            src="/images/profile.png"
+            alt="Luke Pastore at CWRU podium"
+            w="100%"
+            h="100%"
+            objectFit="cover"
           />
         </Box>
 
@@ -82,7 +88,11 @@ export default function Home() {
           </Heading>
 
           <Text fontSize="xl" mt={4} color="gray.400" maxW="2xl">
-            CS + Psychology @ CWRU · Digital Strategy @ KeyBank · 3D Web & UX Enthusiast
+            CWRU Computer Science, Psychology | Minor in AI
+          </Text>
+
+          <Text fontSize="xl" mt={4} color="gray.400" maxW="2xl">
+            Graduating August '25
           </Text>
 
           {/* Buttons */}
@@ -312,6 +322,63 @@ export default function Home() {
         </Box>
       ))}
     <Starfield /> 
+    <Popover trigger="hover" placement="top">
+      <PopoverTrigger>
+        <Box
+          as="a"
+          href="/Luke-Pastore-Resume.pdf"
+          target="_blank"
+          position="fixed"
+          bottom="24px"
+          right="24px"
+          w="4.5vw"
+          h="4.5vw"
+          maxW="80px"
+          maxH="80px"
+          borderRadius="full"
+          bg="brand.500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          boxShadow="lg"
+          zIndex="1000"
+          cursor="pointer"
+          _hover={{
+            transform: 'scale(1.1)',
+            transition: 'transform 0.2s ease',
+          }}
+          sx={{
+            animation: 'float 6s ease-in-out infinite',
+            '@keyframes float': {
+              '0%, 100%': { transform: 'translateY(-6px)' },
+              '50%': { transform: 'translateY(0px)' },
+            },
+          }}
+        >
+          <Icon as={FaFileAlt} boxSize="36px" color="white" />
+        </Box>
+      </PopoverTrigger>
+      <PopoverContent
+        w="auto"
+        maxW="250px"
+        bg="whiteAlpha.100"
+        border="1px solid"
+        borderColor="whiteAlpha.300"
+        borderRadius="md"
+        boxShadow="xl"
+        mr="10px"
+      >
+        <PopoverBody p={2}>
+          <Image
+            src="/images/resume-preview.jpg"
+            alt="Resume Preview"
+            width="100%"
+            borderRadius="md"
+          />
+        </PopoverBody>
+      </PopoverContent>
+    </Popover>
     </BackgroundWrapper>
+    
   )
 }

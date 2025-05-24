@@ -5,7 +5,7 @@ export const educationData = [
     alt: 'Case Western Reserve University Logo',
     dates: 'August 2021 – August 2025',
     details: [
-      'B.S. in Computer Science & Psychology (Double Major)',
+      'Bachelor\'s in Computer Science & Psychology (Double Major)',
       'Minor in Artificial Intelligence',
     ],
     coursesCS: [

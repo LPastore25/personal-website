@@ -42,7 +42,7 @@ export const workData = [
     company: 'Interfraternal Council @ CWRU',
     title: 'President',
     location: 'Cleveland, OH',
-    dates: 'January 2022 – December 2022',
+    dates: 'November 2023 – September 2024',
     points: [
       'Governed 16 fraternities, mediated inter-chapter conflict, and served as liaison to university administration.',
       'Facilitated collaborative policy development, risk mitigation, and event planning.',
