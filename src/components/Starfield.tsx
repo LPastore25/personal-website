@@ -2,9 +2,9 @@
 
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useRef, useMemo, useEffect, useState } from 'react'
+import { useRef, useMemo, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { Bloom } from '@react-three/postprocessing'
 import { useThree } from '@react-three/fiber'
 
 function CameraZoom() {

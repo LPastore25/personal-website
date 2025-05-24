@@ -12,7 +12,6 @@ import {
   useColorModeValue,
   SimpleGrid,
   Image,
-  IconButton,
   PopoverTrigger,
   Popover,
   PopoverContent,
@@ -22,7 +21,6 @@ import { motion } from 'framer-motion'
 import { FaFileAlt, FaLinkedin } from 'react-icons/fa'
 import Starfield from '../components/Starfield'
 import BackgroundWrapper from '../components/BackgroundWrapper'
-import { workData } from '../data/WorkData'
 import { csProjects } from '../data/ProjectData'
 import { educationData } from '../data/EducationData'
 import Header from '../components/Header'
@@ -134,9 +132,8 @@ export default function Home() {
                 p={6}
                 rounded="md"
                 shadow="xl"
-                bg={useColorModeValue('white', 'gray.800')}
+                bg='white'
                 border="1px solid"
-                borderColor={useColorModeValue('gray.200', 'gray.700')}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -374,6 +371,7 @@ export default function Home() {
             alt="Resume Preview"
             width="100%"
             borderRadius="md"
+            pointerEvents="none"
           />
         </PopoverBody>
       </PopoverContent>

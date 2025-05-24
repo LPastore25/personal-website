@@ -6,7 +6,6 @@ import {
   Center,
   Grid,
   Text,
-  useColorModeValue,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { workData } from '../data/WorkData' // adjust path if needed

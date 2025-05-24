@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, Button, Box, Link as ChakraLink, Spacer, IconButton } from '@chakra-ui/react'
+import { HStack, Button, Box, Link as ChakraLink, Spacer } from '@chakra-ui/react'
 import { FaHome } from 'react-icons/fa'
 
 const sections = [
