@@ -29,7 +29,8 @@ import { csProjects } from '../data/ProjectData'
 import { educationData } from '../data/EducationData'
 import Header from '../components/Header'
 import Timeline from '../components/WorkTimeline'
-
+import ProjectsMatrix from '../components/ProjectsMatrix'
+import { useState } from 'react'
 
 const MotionBox = motion(Box)
 
@@ -38,7 +39,15 @@ const sections = [
   { id: 'contact', title: 'Contact', bg: 'rgba(255, 255, 255, 0.03)', color: 'white' },
 ]
 
+const breakpoints = {
+  default: 3,
+  1100: 2,
+  700: 1,
+}
+
+
 export default function Home() {
+  const [hovered, setHovered] = useState<number | null>(null)
 
   return (
     <BackgroundWrapper>
@@ -120,59 +129,7 @@ export default function Home() {
       </VStack>
 
       {/* PROJECTS SECTION */}
-      <Box w ='full' bg= 'rgba(255, 255, 255, 0.03)'>
-        <Box as="section" id="projects" py={[16, 24]} maxW="6xl" mx="auto" >
-          <Heading
-            fontSize="5xl"
-            fontWeight="bold"
-            color="white"
-            opacity={0.8}
-            mb={10}
-            textAlign="center"
-          >
-            Projects
-          </Heading>
-
-          <SimpleGrid columns={[1, null, 2]} spacing={10}>
-            {csProjects.map((project, index) => (
-              <MotionBox
-                key={index}
-                p={6}
-                rounded="md"
-                shadow="xl"
-                bg='white'
-                border="1px solid"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Heading size="md" mb={2}>
-                  {project.title}
-                </Heading>
-                <Text mb={3} color="gray.500">
-                  {project.description}
-                </Text>
-                <HStack spacing={2} flexWrap="wrap">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Box
-                      key={tagIndex}
-                      bg="brand.100"
-                      color="brand.700"
-                      fontSize="sm"
-                      px={2}
-                      py={1}
-                      rounded="md"
-                    >
-                      {tag}
-                    </Box>
-                  ))}
-                </HStack>
-              </MotionBox>
-            ))}
-          </SimpleGrid>
-        </Box>
-      </Box>
+      <ProjectsMatrix />
 
 
       
