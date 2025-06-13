@@ -44,7 +44,7 @@ export default function ProjectsMatrix() {
         mb={10}
         textAlign="center"
       >
-        Projects
+        Projects [Under Construction]
       </Heading>
 
       <MotionBox
