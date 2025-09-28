@@ -9,31 +9,13 @@ import {
   Flex
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { csProjects } from '../data/ProjectData'
 
 const MotionBox = motion(Box)
 
 export default function ProjectsMatrix() {
   const [selectedProject, setSelectedProject] = useState(csProjects[0])
-  const [isPortrait, setIsPortrait] = useState(false)
-
-  // Detect orientation
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const { naturalWidth, naturalHeight } = e.currentTarget
-    setIsPortrait(naturalHeight > naturalWidth)
-  }
-
-  // Preload orientation on project change
-  useEffect(() => {
-    if (selectedProject?.image) {
-      const img = new window.Image()
-      img.src = selectedProject.image
-      img.onload = () => {
-        setIsPortrait(img.naturalHeight > img.naturalWidth)
-      }
-    }
-  }, [selectedProject])
 
   return (
     <Box as="section" id="projects" py={[16, 24]} maxW="7xl" mx="auto">
@@ -110,83 +92,26 @@ export default function ProjectsMatrix() {
           bg="whiteAlpha.200"
           border="1px solid"
           borderColor="whiteAlpha.200"
-          maxH={selectedProject.image ? '400px' : 'none'}
-          h={selectedProject.image ? '400px' : 'auto'}
+          h="auto"
           overflow="hidden"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {selectedProject.image ? (
-            isPortrait ? (
-              // Portrait → left
-              <Flex direction="row" gap={6} align="flex-start" h="100%">
-                <Box flex="0 0 auto" h="100%" maxW="40%">
-                  <Image
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    borderRadius="md"
-                    h="100%"
-                    w="auto"
-                    objectFit="contain"
-                    onLoad={handleImageLoad}
-                  />
-                </Box>
-                <VStack spacing={4} align="start" flex="1" overflow="hidden">
-                  <Heading size="lg" color="whiteAlpha.900">
-                    {selectedProject.title}
-                  </Heading>
-                  <Text color="gray.300">{selectedProject.description}</Text>
-                  {selectedProject.details && (
-                    <Text color="gray.400" fontSize="sm">
-                      {selectedProject.details}
-                    </Text>
-                  )}
-                  <HStack spacing={2} wrap="wrap">
-                    {selectedProject.tags.map((tag, i) => (
-                      <Tag key={i} colorScheme="blue">
-                        {tag}
-                      </Tag>
-                    ))}
-                  </HStack>
-                </VStack>
-              </Flex>
-            ) : (
-              // Landscape → top
-              <VStack spacing={4} align="start" h="100%">
-                <Box w="100%" maxH="200px">
-                  <Image
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    borderRadius="md"
-                    h="100%"
-                    w="auto"
-                    objectFit="contain"
-                    mx="auto"
-                    onLoad={handleImageLoad}
-                  />
-                </Box>
-                <Heading size="lg" color="whiteAlpha.900">
-                  {selectedProject.title}
-                </Heading>
-                <Text color="gray.300">{selectedProject.description}</Text>
-                {selectedProject.details && (
-                  <Text color="gray.400" fontSize="sm">
-                    {selectedProject.details}
-                  </Text>
-                )}
-                <HStack spacing={2} wrap="wrap">
-                  {selectedProject.tags.map((tag, i) => (
-                    <Tag key={i} colorScheme="blue">
-                      {tag}
-                    </Tag>
-                  ))}
-                </HStack>
-              </VStack>
-            )
-          ) : (
-            // No image → shrink box
-            <VStack spacing={4} align="start">
+          <Flex direction="row" gap={6} align="flex-start">
+            {selectedProject.image && (
+              <Box flex="0 0 auto" maxW="40%" h="100%">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  borderRadius="md"
+                  objectFit="contain"
+                  maxH="300px"
+                  w="100%"
+                />
+              </Box>
+            )}
+            <VStack spacing={4} align="start" flex="1" overflow="hidden">
               <Heading size="lg" color="whiteAlpha.900">
                 {selectedProject.title}
               </Heading>
@@ -204,7 +129,7 @@ export default function ProjectsMatrix() {
                 ))}
               </HStack>
             </VStack>
-          )}
+          </Flex>
         </MotionBox>
       )}
     </Box>
