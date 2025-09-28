@@ -71,6 +71,7 @@ export default function Home() {
           overflow="hidden"
           border="3px solid white"
           boxShadow="0 0 30px rgba(255, 255, 255, 0.08)"
+          marginTop="100px"
           animation="float 6s ease-in-out infinite"
           sx={{
             '@keyframes float': {
@@ -214,7 +215,7 @@ export default function Home() {
             {/* Right column: classes box */}
             <Box
               p={6}
-              bg={useColorModeValue('whiteAlpha.100', 'gray.800')}
+              bg= "whiteAlpha.200"
               borderRadius="md"
               shadow="md"
               h="100%"

@@ -17,7 +17,7 @@ type WorkItemType = typeof workData[number]
 const TimelineCard = ({ item, index }: { item: WorkItemType; index: number }) => (
   <MotionBox
     p={6}
-    bg="whiteAlpha.50"
+    bg="whiteAlpha.200"
     border="1px solid"
     borderColor="whiteAlpha.200"
     borderRadius="md"

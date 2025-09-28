@@ -1,18 +1,5 @@
 export const workData = [
   {
-    company: 'Pastore Solutions LLC',
-    title: 'Business Intelligence Developer',
-    location: 'Remote (Boston, MA)',
-    dates: 'August 2024 – Present',
-    points: [
-      'Consulted for a Self-Storage company with 18 facilities across 4 different states',
-      'Created automated pricing tools saving 50 hours a month using 43 different variables using Domo ETL’s and Beast Mode',
-      'Created a Master Data set integrating data across all facilities and competitors in Domo',
-      'Created dashboards to oversee price/cost analysis and metrics to evaluate facility performance'
-    ],
-    tags: ['Data Visualization', 'Domo', 'ETL Automation'],
-  },
-  {
     company: 'Weatherhead School of Management',
     title: 'Research Assistant',
     location: 'Cleveland, OH',
@@ -25,6 +12,21 @@ export const workData = [
       'Collaborating with the BI Norwegian Business School to synthesize research findings and develop cross-institutional strategies'
     ],
     tags: ['Organizational Research', 'AI Integration', 'Qualitative Analysis'],
+  },
+  {
+    company: 'Pastore Solutions LLC',
+    title: 'Business Intelligence Developer',
+    location: 'Remote (Boston, MA)',
+    dates: 'June 2024 – September 2025',
+    points: [
+      'Consulted for a Self-Storage company with 18 facilities across 4 different states',
+      'Created automated pricing tools saving 50 hours a month using 43 different variables using Domo ETL’s and Beast Mode',
+      'Created a Master Data set integrating data across all facilities and competitors in Domo',
+      'Created dashboards to oversee price/cost analysis and metrics to evaluate facility performance',
+      'Developed and integrated RAG models into customer experiences',
+      'Created a native Customer Rep & Sales portal integrating tools including Zapier, Streak, and Hiver'
+    ],
+    tags: ['Data Visualization', 'Domo', 'ETL Automation'],
   },
   {
     company: 'KeyBank',
