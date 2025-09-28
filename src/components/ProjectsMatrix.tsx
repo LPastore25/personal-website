@@ -45,7 +45,7 @@ export default function ProjectsMatrix() {
         mb={10}
         textAlign="center"
       >
-        Projects ({csProjects.length})
+        Projects
       </Heading>
 
       {/* ---------------- HORIZONTAL CAROUSEL ---------------- */}
