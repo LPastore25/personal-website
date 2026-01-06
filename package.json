@@ -17,7 +17,7 @@
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "framer-motion": "^6.5.1",
-    "next": "^15.3.2",
+    "next": "15.3.8",
     "postprocessing": "^6.37.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
