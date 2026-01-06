@@ -6,7 +6,8 @@ import {
   Tag,
   Image,
   VStack,
-  Flex
+  Flex,
+  Link
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
@@ -101,16 +102,33 @@ export default function ProjectsMatrix() {
           <Flex direction="row" gap={6} align="flex-start">
             {selectedProject.image && (
               <Box flex="0 0 auto" maxW="40%" h="100%">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  borderRadius="md"
-                  objectFit="contain"
-                  maxH="300px"
-                  w="100%"
-                />
+                {selectedProject.image === '/images/FinanceDashboard.png' ? (
+                  <Link href="/finance" _hover={{ textDecoration: 'none' }}>
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      borderRadius="md"
+                      objectFit="contain"
+                      maxH="300px"
+                      w="100%"
+                      cursor="pointer"
+                      transition="all 0.2s ease"
+                      _hover={{ transform: 'scale(1.02)', opacity: 0.9 }}
+                    />
+                  </Link>
+                ) : (
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    borderRadius="md"
+                    objectFit="contain"
+                    maxH="300px"
+                    w="100%"
+                  />
+                )}
               </Box>
             )}
+
             <VStack spacing={4} align="start" flex="1" overflow="hidden">
               <Heading size="lg" color="whiteAlpha.900">
                 {selectedProject.title}

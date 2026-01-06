@@ -206,5 +206,18 @@ Focused on turning raw datasets into actionable insights for policymakers.
 Delivered an interactive map-based tool for exploring urban housing data.`,
   image: '/images/ClevelandHousing.png',
 },
-
+{
+  title: 'Personal Finance & Spending Flow Dashboard',
+  description:
+    'React-based finance dashboard with custom Sankey visualizations for income, spending, and savings flows.',
+  tags: ['React', 'TypeScript', 'Plotly', 'SQLite', 'Data Visualization'],
+  details: `Built an interactive personal finance dashboard to analyze income and spending behavior.
+Designed custom Sankey diagrams to visualize income sources flowing into needs, wants, and savings.
+Implemented rent-to-rent time windows for accurate monthly spending analysis.
+Handled complex transaction normalization, transfer exclusion, and income categorization logic.
+Developed a Flask + SQLite backend to aggregate and serve transaction data.
+Focused on clear financial storytelling through structured visual hierarchy and percentages.
+Delivered an intuitive tool for understanding cash flow, budgeting gaps, and spending patterns.`,
+  image: '/images/FinanceDashboard.png',
+}
 ]
