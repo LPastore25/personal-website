@@ -7,7 +7,7 @@ import {
   Image,
   VStack,
   Flex,
-  Link
+  Link,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
@@ -32,10 +32,33 @@ export default function ProjectsMatrix() {
       </Heading>
 
       {/* ---------------- HORIZONTAL CAROUSEL ---------------- */}
-      <MotionBox p={6} borderRadius="md" shadow="md" mb={8} overflowX="auto">
-        <HStack spacing={6} minW="max-content">
+      <MotionBox
+        p={6}
+        borderRadius="md"
+        shadow="md"
+        mb={8}
+        w="100%"
+        maxW="100%"
+        // Put overflow styles in sx so framer-motion can't stomp them
+        sx={{
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          WebkitOverflowScrolling: 'touch',
+          // Optional: make scrollbars visible on some platforms
+          scrollbarWidth: 'thin',
+        }}
+      >
+        <HStack
+          spacing={6}
+          minW="max-content"
+          // Optional snap (feels nicer + makes it obvious it scrolls)
+          sx={{
+            scrollSnapType: 'x mandatory',
+          }}
+        >
           {csProjects.map((project) => {
             const isSelected = selectedProject.title === project.title
+
             return (
               <Box
                 key={project.title}
@@ -57,10 +80,13 @@ export default function ProjectsMatrix() {
                 display="flex"
                 flexDirection="column"
                 justifyContent="space-between"
+                // Snap each card
+                scrollSnapAlign="start"
               >
                 <Heading size="sm" noOfLines={2}>
                   {project.title}
                 </Heading>
+
                 <Text
                   fontSize="sm"
                   flex="1"
@@ -70,6 +96,7 @@ export default function ProjectsMatrix() {
                 >
                   {project.description}
                 </Text>
+
                 <HStack spacing={2} wrap="wrap" mt={2}>
                   {project.tags.slice(0, 3).map((tag, i) => (
                     <Tag key={i} colorScheme="blue" size="sm">
@@ -133,12 +160,15 @@ export default function ProjectsMatrix() {
               <Heading size="lg" color="whiteAlpha.900">
                 {selectedProject.title}
               </Heading>
+
               <Text color="gray.300">{selectedProject.description}</Text>
+
               {selectedProject.details && (
                 <Text color="gray.400" fontSize="sm">
                   {selectedProject.details}
                 </Text>
               )}
+
               <HStack spacing={2} wrap="wrap">
                 {selectedProject.tags.map((tag, i) => (
                   <Tag key={i} colorScheme="blue">
