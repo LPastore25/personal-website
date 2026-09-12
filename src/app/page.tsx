@@ -263,34 +263,6 @@ export default function Home() {
           </SimpleGrid>
         </Box>
       </Box>
-      
-
-      {/* CONTACT SECTION */}
-      <Box as="section" id="contact" py={16} maxW="xl" mx="auto">
-        <Heading fontSize="4xl" mb={8} textAlign="center" color="white">
-          Contact Me
-        </Heading>
-        <form action="https://formsubmit.co/luke@lukepastore.com" method="POST">
-          <VStack spacing={6}>
-            <FormControl isRequired>
-              <FormLabel color="white">Name</FormLabel>
-              <Input name="name" placeholder="Your name" bg="white" />
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel color="white">Email</FormLabel>
-              <Input type="email" name="email" placeholder="you@example.com" bg="white" />
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel color="white">Message</FormLabel>
-              <Textarea name="message" placeholder="Your message..." bg="white" />
-            </FormControl>
-            <Input type="hidden" name="_captcha" value="false" />
-            <Button type="submit" colorScheme="brand" w="full">
-              Send Message
-            </Button>
-          </VStack>
-        </form>
-      </Box>
     <Starfield /> 
 
     {/* Floating Resume Button */}

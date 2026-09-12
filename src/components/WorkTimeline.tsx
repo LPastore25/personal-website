@@ -6,7 +6,9 @@ import {
   Center,
   Grid,
   Text,
+  Button,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { workData } from '../data/WorkData' // adjust path if needed
 
@@ -28,10 +30,10 @@ const TimelineCard = ({ item, index }: { item: WorkItemType; index: number }) =>
     transition={{ duration: 0.6, delay: index * 0.1 }}
   >
     <Text fontWeight="bold" fontSize="lg" color="white">
-      {item.company}
+      {item.title}
     </Text>
     <Text fontSize="sm" color="gray.400" mb={0} fontStyle={'italic'}>
-      {item.title} • {item.location}
+      {item.company} • {item.location}
     </Text>
     <Text fontSize="sm" color="gray.400" mb={2} fontStyle={'italic'}>
       {item.dates}
@@ -74,6 +76,11 @@ const TimelineItem = ({
 )
 
 export default function Timeline(props: any) {
+  const [showMore, setShowMore] = useState(false)
+  const internshipIndex = workData.findIndex((item) => item.title === 'Digital Analyst Intern')
+  const initialCount = internshipIndex === -1 ? workData.length : internshipIndex + 1
+  const visibleItems = showMore ? workData : workData.slice(0, initialCount)
+
   return (
     <Box position="relative" width="100%">
         <VStack spacing={16} align="stretch" {...props}>
@@ -86,10 +93,21 @@ export default function Timeline(props: any) {
             transform="translateX(-50%)"
             bg="whiteAlpha.200"
             />
-            {workData.map((item, index) => (
+            {visibleItems.map((item, index) => (
               <TimelineItem key={index} item={item} isLeft={index % 2 === 0} index={index} />
             ))}
         </VStack>
+        {initialCount < workData.length && (
+          <Center mt={10} position="relative">
+            <Button
+              onClick={() => setShowMore(!showMore)}
+              aria-expanded={showMore}
+              colorScheme="whiteAlpha"
+            >
+              {showMore ? 'Show less' : 'More'}
+            </Button>
+          </Center>
+        )}
     </Box>
   )
 }
